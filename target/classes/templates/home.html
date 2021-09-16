@@ -1,0 +1,34 @@
+<!doctype html>
+<!-- <html lang="en" xmlns:th="http://www.thymeleaf.org"	th:replace="base::layout(~{::section},'Home Page')">  -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org"	th:replace="base::layout(~{::header})">
+<head>
+	<meta charset="UTF-8" />
+	<title>Home Page</title>
+</head>
+<body>
+	
+	<header>
+		<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">                
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img th:src="@{../img/banner.jpg}" class="d-block w-100" alt="image/1.jpg"
+                    	style="background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7))">
+                    <div class="carousel-caption  d-md-block" style="bottom: 3.25rem;">
+                    	<h1 class="font-weight-bold">Smart Contact Manager</h1>
+						<p>
+							Smart collecting your contacts in very smart way.
+							We provide very efficient and smarter way of handling contacts.
+						</p>						
+						<button type="button" class="btn bg-primary text-white " 
+							data-bs-toggle="tooltip" data-bs-placement="right" title="Click it !">
+						  Get Started
+						</button>
+                    </div>
+                </div>                               
+            </div>
+	</header>
+	
+	<!-- Internal JavaScript -->
+    <script th:src="@{../js/script.js}"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!doctype html>
+<!-- <html lang="en" xmlns:th="http://www.thymeleaf.org"	th:replace="base::layout(~{::section},'About Page')">  -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org"	th:replace="base::layout(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title>About Page</title>
+</head>
+<body>
+	<section>
+		<div class="container ">
+			<div class="row " >
+				<div class="col-md-6 offset-md-3 mx-auto" >
+					<div class="my-card bg-white p-3 mt-5 shadow-lg p-3 mb-5 bg-body rounded" >
+						<form novalidate="novalidate" class="form"  th:action="@{/login}" method="post" >
+							<!-- Validation part -->
+							<div th:if="${param.error}" class="text-center alert alert-danger">
+							 	 Invalid UserName Or Password!!
+							</div>
+							<div th:if="${param.logout}" class="text-center alert alert-success">
+							 	 You have been logged out!!
+							</div>
+							
+							<div th:if="${param.Change}" class="text-center alert alert-success">
+							 	 <p th:text="${param.Change}"></p>
+							</div>
+							
+							<h3 class="display-4 text-capitalize text-center ">Login</h3>
+							
+							<!-- UserName Field -->
+							<div class="mb-3">
+							    <label for="username_field" class="form-label text-dark text-info">UserName</label>
+							    <input type="email" 
+							    		class="form-control" 
+							    		id="username_field" 
+							    		aria-describedby="emailHelp"
+							    		placeholder="Enter here"	
+							    		name="username"							    		 
+							    		>							     							    
+							</div>
+							
+							<!-- Password Field -->
+							<div class="mb-3">
+							    <label for="password_field" class="form-label text-dark">Password</label>
+							    <input type="password" 
+							    		class="form-control" 
+							    		id="password_field" 
+							    		aria-describedby="emailHelp"
+							    		placeholder="Enter here"	
+							    		name="password"							    		 
+							    		>							     							    
+							</div>
+														 
+							<!-- Buttons -->	
+                            <div class="container text-center">
+                            	<button type="submit" class="btn bg-primary text-white px-4">
+                            		Submit
+                            	</button>
+                            	<button type="reset" class="btn bg-warning text-white px-4">
+                            		Reset
+                            	</button>
+                            </div>
+                            
+                            <!-- Registration Link -->
+							<div id="register-link" class="mt-3 text-center">
+	                                <a href="/signup" class="text-purple ">Not register yet? Register here!!</a>
+	                        </div>
+	                        
+	                        <!-- Forgot password link -->
+	                        <div id="register-link" class="mt-3 text-center">
+	                                <a href="#" th:href="@{/forgot}" class="text-purple ">Forgot your password? Click here!!</a>
+	                        </div>
+							
+						 </form>
+				
+				
+					</div>
+					
+				</div>
+			
+			</div>
+		</div>		
+	</section>	
+		
+		
+		
+		
+		
+		<!-- <div id="login">
+	        <div class="container">
+	            <div id="login-row" class="row justify-content-center align-items-center">
+	                <div id="login-column" class="col-md-6">
+	                    <div id="login-box" class="col-md-12">
+	                        
+	                        <form id="login-form" novalidate="novalidate" class="form" th:action="@{/login}" method="post">
+	                            <h3 class="text-center text-info">Login</h3>
+	                            
+	                            <div th:if="${param.error}" class="text-center alert alert-danger">
+	                            	Invalid username or password								 	
+								</div>
+
+	                            <div th:if="${param.logout}" class="text-center alert alert-success">
+	                            	You have been logged out								 	
+								</div>
+	                            
+	                            <div class="form-group">
+	                                <label for="username" class="text-info">Username</label><br>
+	                                <input type="email" name="username" id="username" class="form-control">
+	                            </div>
+	                            <div class="form-group">
+	                                <label for="password" class="text-info">Password</label><br>
+	                                <input type="password" name="password" id="password" class="form-control">
+	                            </div>
+	                            <div class="form-group">
+	                                <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+	                                <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+	                            </div>
+	                            <div id="register-link" class="text-start mt-2">
+	                                <a href="/signup" class="text-info text-primary">Register here</a>
+	                            </div>
+	                        </form>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	 -->	
+	
+	
+</body>
+</html>

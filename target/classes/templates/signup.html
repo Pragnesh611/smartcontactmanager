@@ -1,0 +1,137 @@
+<!doctype html>
+<!-- <html lang="en" xmlns:th="http://www.thymeleaf.org"	th:replace="base::layout(~{::section},'About Page')">  -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org"	th:replace="base::layout(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>About Page</title>
+</head>
+<body>
+	<section>		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 offset-md-2 mx-auto mt-2">
+					<div class="my-card bg-white p-3 mt-2 shadow-lg p-3 mb-5 bg-body rounded">						
+						<form novalidate="novalidate" action="" th:action="@{do_register}" method="post" th:object="${user}">
+							<!-- Validation -->
+							<div th:if="${session.message}" th:classappend="${session.message.type}" class="alert" role="alert">
+							 	<p class="text-center" th:text="${session.message.content}"></p>
+							 	<th:block th:text="${#session.removeAttribute('message')}"></th:block> 
+							</div>
+							<!-- Heading -->
+							<h2 class="display-4 text-capitalize text-center">Register Here !!</h2>
+							<!-- Name Field -->
+							<div class="mb-3">
+							    <label for="name_field" class="form-label">Your Name</label>
+							    <input type="text" 
+							    		class="form-control" 
+							    		id="name_field" 
+							    		aria-describedby="emailHelp"
+							    		placeholder="Enter here"
+							    		required="required"
+							    		data-bs-toggle="tooltip" data-bs-placement="bottom" title="Fill your name"
+							    		name="name"
+							    		th:value="${user.name}"
+							    		th:classappend="${#fields.hasErrors('name')?'is-invalid' : ''}" 
+							    		>
+							     <div th:each="e : ${#fields.errors('name')}" th:text="${e}" 
+							     	  id="validationServer03Feedback" class="invalid-feedback">						     
+						   		 </div>	
+							    
+							</div>
+							
+							<!-- Email Field -->
+							<div class="mb-3">
+							    <label for="email_field" class="form-label">Your Email</label>
+							    <input type="email" 
+							    		class="form-control" 
+							    		id="email_field" 
+							    		aria-describedby="emailHelp"
+							    		placeholder="Enter here"
+							    		required="required"
+							    		data-bs-toggle="tooltip" data-bs-placement="bottom" title="Fill your email"
+							    		name="email"
+							    		th:value="${user.email}"
+							    		th:classappend="${#fields.hasErrors('email')?'is-invalid' : ''}"
+							    		>
+							    <div th:each="e : ${#fields.errors('email')}" th:text="${e}" 
+							    	 id="validationServer03Feedback" class="invalid-feedback">						     
+						   		</div>
+							</div>
+							
+							<!-- Password Field -->
+							<div class="mb-3">
+							    <label for="password_field" class="form-label">Your Password</label>
+							    <input type="password" 
+							    		class="form-control" 
+							    		id="password_field" 
+							    		aria-describedby="emailHelp"
+							    		placeholder="Enter here"
+							    		required="required"
+							    		data-bs-toggle="tooltip" data-bs-placement="bottom" title="Fill your password"
+							    		name="password"
+							    		th:classappend="${#fields.hasErrors('password')?'is-invalid' : ''}"
+							    		>
+							     <div th:each="e : ${#fields.errors('password')}" th:text="${e}" 
+							     	  id="validationServer03Feedback" class="invalid-feedback">			     
+						   		 </div>
+							</div>
+							
+							<!-- User About field -->
+							
+                            <div class="mb-3">
+						       <label for="about_field" class="control-label">About
+						       </label>
+						       <div>    
+									<textarea name="about" id="about_field"  rows="3" class="form-control" 
+										placeholder="Enter your Message"
+										data-bs-toggle="tooltip" data-bs-placement="bottom" title="Fill Something about"
+										th:text="${user.about}"
+										th:classappend="${#fields.hasErrors('password')?'is-invalid' : ''}"
+										></textarea>
+									<div th:each="e : ${#fields.errors('about')}" th:text="${e}" 
+										 id="validationServer03Feedback" class="invalid-feedback">
+						     
+						   		    </div>	
+							   </div><!--end col 10-->
+						    </div><!--ends from group-->
+						     
+						    <!-- Terms and condition agreement -->
+						    <div class="mb-3 form-check">
+							    <input type="checkbox" 
+							    	class="form-check-input" 
+							    	id="agreement"
+							    	name="agreement">
+							    <label class="form-check-label" for="agreement">Accept terms and condition</label>
+							 </div> 
+                            
+                            <!-- Buttons -->	
+                            <div class="container text-center">
+                            	<button type="submit" class="btn bg-primary text-white px-4">
+                            		Submit
+                            	</button>
+                            	<button type="reset" class="btn bg-warning text-white px-4">
+                            		Reset
+                            	</button>
+                            </div>
+                            
+                            <!-- Login Link -->
+                            <div id="register-link" class="mt-3 text-center">
+	                                <a href="/login" class="text-purple ">Already have an account? SignIn Here !!</a>
+	                        </div>
+                            
+						</form>
+						
+					</div>
+					
+				</div>	
+			
+			
+			
+			</div>
+		</div>
+		
+	</section>
+	
+</body>
+</html>

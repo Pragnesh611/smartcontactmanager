@@ -1,0 +1,88 @@
+<!doctype html>
+<!-- <html lang="en" xmlns:th="http://www.thymeleaf.org"	th:replace="base::layout(~{::section},'About Page')">  -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org"	th:replace="normal/base::layout(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title>Settings</title>
+</head>
+<body>
+	<section>
+		
+		<!-- Main content start -->
+		<div class="container">
+		 	<div class="row " >				
+				<div class="container-fluid">
+					<div class="col-md-10 offset-md-1 mx-auto bg-white p-3 mt-3 shadow-lg p-3 mb-5 bg-body rounded mt-4">
+					
+						<!-- Alert message -->
+						<div th:if="${session.message}" class="alert text-center mb-3" th:classappend="${'alert-'+session.message.type}" role="alert">
+						  <span th:text="${session.message.content}"></span>
+						  <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+						</div>
+						
+						<!-- Heading field -->
+						<h2 class="text-center mb-3">Change password</h2>
+						
+						
+						<!-- Form -->
+						<form th:action="@{/user/change-password}" method="post" >
+						  <!-- Old password field -->
+						
+						  <div class="mb-3">
+						    
+						    <input type="password" required="required" 
+						    		class="form-control" id="exampleInputPassword1" 
+						    		name="oldPassword"
+						    		placeholder="Enter old password">
+						    
+						  </div>
+						  
+						  
+						  <!-- New password field -->
+						  
+						  <div class="mb-3">
+						   
+						    <input type="password" required="required" 
+						    		class="form-control" id="exampleInputPassword2" 
+						    		name="newPassword"
+						    		placeholder="Enter new password">
+						  </div>						  
+						  
+						  <!-- Buttons -->
+						  
+						  <div class="container text-center">
+						  	<button type="submit" class="btn bg-primary text-white">Submit</button>
+						  	<button type="reset" class="btn bg-warning text-white">Reset</button>
+						  </div>						  
+						  
+						</form>
+						
+						
+						
+		
+					</div>
+				</div>
+			</div>
+		</div> 	
+					
+		
+		
+		
+		<!-- Main content End -->
+		
+		<!-- Active link showing -->
+		<script>
+		
+			$(document).ready(() => {
+				$(".item").removeClass("active");
+				$("#settings-link").addClass("active");
+			});
+		
+			
+		</script>
+		
+		
+	</section>
+	
+</body>
+</html>

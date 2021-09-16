@@ -1,0 +1,63 @@
+<!doctype html>
+<!-- <html lang="en" xmlns:th="http://www.thymeleaf.org"	th:replace="base::layout(~{::section},'About Page')">  -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org"	th:replace="base::layout(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title>About Page</title>
+</head>
+<body>
+	<section>
+		<div class="container ">
+			<div class="row " >
+				<div class="col-md-6 offset-md-3 mx-auto" >
+					<div class="my-card bg-white p-3 mt-5 shadow-lg p-3 mb-5 bg-body rounded" >
+						<!-- Validation -->
+						<div th:if="${session.message}" th:classappend="${session.message.type}" class="alert" role="alert">
+						 	<p class="text-center" th:text="${session.message.content}"></p>
+						 	<th:block th:text="${#session.removeAttribute('message')}"></th:block> 
+						</div>
+			
+						
+						<!-- otp form -->
+						<!-- Message -->
+						<div class="alert alert-success text-center" role="alert">
+						  We have sent OTP to your email address !!
+						</div>
+						
+						<!-- form -->
+						<form action="" th:action="@{/verify-otp}" method="post">
+							<!-- OTP field -->
+							<div class="mb-3">							    
+							    <input type="text" 
+							    		class="form-control" 
+							    		required="required" 
+							    		
+							    		placeholder="Enter OTP here"
+							    		name="otp"								    		 
+							    		>							     							    
+							</div>
+							
+							<!-- Button -->
+							<div class="container text-center">
+                            	<button type="submit" class="btn bg-primary text-white px-4">
+                            		Verify
+                            	</button>
+                            	<button type="reset" class="btn bg-warning text-white px-4">
+                            		Reset
+                            	</button>
+                            </div>
+						
+						
+						</form>	
+				
+					</div>
+					
+				</div>
+			
+			</div>
+		</div>		
+	</section>			
+	
+	
+</body>
+</html>

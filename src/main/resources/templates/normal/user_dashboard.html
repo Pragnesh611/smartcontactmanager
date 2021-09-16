@@ -1,0 +1,54 @@
+<!doctype html>
+<!-- <html lang="en" xmlns:th="http://www.thymeleaf.org"	th:replace="base::layout(~{::section},'About Page')">  -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org"	th:replace="normal/base::layout(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title>About Page</title>
+</head>
+<body>
+	<section>
+		<div class="container text-center"  th:if="${user}">
+		 	<div class="row col-md-10 offset-md-1 mx-auto" >				
+				
+					<div class="bg-white p-3 mt-3 shadow-lg p-3 mb-5 bg-body rounded mt-4 ">
+					
+						<!-- Alert message -->
+						<div th:if="${session.message}" class="alert text-center mb-3" th:classappend="${'alert-'+session.message.type}" role="alert">
+						  <span th:text="${session.message.content}"></span>
+						  <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+						</div>
+					
+						<!-- Image -->
+						<figure class="mb-3">
+							<img alt="Profile Photo" style="height: 175px;width: 175px;" class="my-profile-picture" th:src="@{'/img/contactlogo.png'}" src="">
+						</figure>
+					
+						<!-- Heading -->
+						<h1 class="mb-3 text-secondary ">Start adding your contact on cloud . . .</h1>	
+					
+					
+						<a th:href="@{/user/add-contact}" class="btn-primary btn text-uppercase btn-blobk btn-sm">Add new contact</a>
+					
+					</div>
+				 </div>	
+		    
+		</div>
+		
+		
+		<script>
+		
+			$(document).ready(() => {
+				$(".item").removeClass("active");
+				$("#home-link").addClass("active");
+				
+				
+			});
+		
+			
+		</script>
+		
+		
+	</section>
+	
+</body>
+</html>

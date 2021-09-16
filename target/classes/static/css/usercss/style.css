@@ -1,0 +1,99 @@
+/* Sidebar style */
+
+@media only screen and (max-width:600px){
+	.sidebar{
+	display:none;
+	width: 80% !important;
+	height: 100%;
+	position: fixed;
+	padding-top:1.5%; 
+	background: white;
+	} 
+	.content{
+		margin-left: 0%;
+	}
+}
+
+.sidebar{
+	display:none;
+	width: 18%;
+	height: 100%;
+	position: fixed;
+	padding-top:1.5%; 
+	border-right: 1px solid #e2e2e2;
+	z-index: 999999999999999999999999999999999999;
+	 
+}
+
+.sidebar a{
+	display:block;
+	width: 100%;
+	padding: 3% 8%;
+	text-decoration: none;
+	color: gray;
+}
+
+.sidebar a:hover{
+	background:#008000 ;
+	color: #fff;
+}
+
+.sidebar .divider{
+	height: 0.1%;
+	width: 100%;
+	background: #e2e2e2;
+	margin-top: 5%;
+}
+
+.sidebar .crossbtn{
+	position: absolute;
+	top: 0;
+	right: 8%;
+	cursor: pointer;
+	
+	
+}
+
+
+/* Content style */
+.content{
+	margin-left: 0%;
+	
+}
+
+/* .contact-table table,tr,th,td {
+	 text-align:center;
+} */
+
+.contact-table th {
+	 color:#008000;
+}
+
+.user-table th {
+	 color:#008000;
+}
+
+.my-profile-picture{
+	width: 35px;
+	height:35px;
+	border-radius: 50%;
+	
+	object-fit:cover;
+}
+
+/* Search css */
+.search-container{
+	position:relative;
+}
+
+.search-result{
+	position:absolute;
+	background: white;
+	width: 100%;
+	display: none;
+}
+
+.active{
+	background: #008000!important;
+	color:#fff!important;
+}
